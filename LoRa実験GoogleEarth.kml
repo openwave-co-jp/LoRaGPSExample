@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+	<Document>
+		<Camera>
+			<longitude>139.6315306392596</longitude>
+			<latitude>35.475</latitude>
+			<altitude>200</altitude>
+			<heading>1.709263922542933</heading>
+			<tilt>70</tilt>
+			<range>134.1197492535974</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+
+		<Style id="s_ylw-pushpin">
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+				</Icon>
+				<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+			</IconStyle>
+			<ListStyle>
+			</ListStyle>
+		</Style>
+		<StyleMap id="m_ylw-pushpin">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#s_ylw-pushpin</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id="s_ylw-pushpin_hl">
+			<IconStyle>
+				<scale>1.4</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+				</Icon>
+				<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+			</IconStyle>
+			<ListStyle>
+			</ListStyle>
+		</Style>
+
+
+		<Placemark>
+			<name>オープンウェーブ</name>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<altitudeMode>absolute</altitudeMode>
+				<extrude>1</extrude>
+				<coordinates>139.6315336698015,35.47907001362073,20</coordinates>
+			</Point>
+		</Placemark>
+<Placemark><Point><extrude>1</extrude><altitudeMode>absolute</altitudeMode><coordinates>139.63142,35.47919,1</coordinates></Point></Placemark>
+
+
+
+	</Document>
+</kml>
