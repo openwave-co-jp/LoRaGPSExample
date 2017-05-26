@@ -25,7 +25,7 @@ void setup() {
   LoRa.setSignalBandwidth(125E3);
   LoRa.setCodingRate4(6);
   LoRa.crc();
-  LoRa.setTxPower(22);
+  LoRa.setTxPower(13);
 }
 
 void loop() {
