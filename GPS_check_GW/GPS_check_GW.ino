@@ -48,7 +48,7 @@ void loop() {
     
     char *tp;
     int cnt=0;
-    /* スペース.を区切りに文字列を抽出 */   
+    /* ,を区切りに文字列を抽出 */   
     tp = strtok( message, "," );
     char latSign,longSign,*stopstring;
     double utc;
