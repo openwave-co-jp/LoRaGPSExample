@@ -6,7 +6,7 @@
 YunClient client;
 
 //RH_RF95 rf95;
-//float frequency = 923.6;
+//float frequency = 921.6;
 unsigned long myChannelNumber = 000000;
 const char * myWriteAPIKey = "XXXXXXXXXXXXXXXX";
 
@@ -17,7 +17,7 @@ void setup() {
   ThingSpeak.begin(client);
 //  Console.println("LoRa Receiver");
   
-  if (!LoRa.begin(9236E5)) {
+  if (!LoRa.begin(9216E5)) {
 //    Console.println("Starting LoRa failed!");
     while (1);
   }

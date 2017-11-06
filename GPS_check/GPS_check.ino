@@ -29,7 +29,7 @@ void setup() {
 //  config.reg_26 = 0b00000000; // default.
 //  rf95.setModemRegisters(&config);
 
-  if (!LoRa.begin(9236E5)) {
+  if (!LoRa.begin(9216E5)) {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
@@ -41,7 +41,25 @@ void setup() {
   mySerial.begin(9600);
   pinMode(A0, INPUT);
 }
-
+bool wait_CAD(){
+  unsigned long t = millis();
+  
+  int packetSize = 0;
+  
+  while (packetSize==0) {
+    LoRa.available();
+    packetSize = LoRa.parsePacket();
+    if (packetSize) {
+      delay(random(1, 10) * 100);
+      return false;
+    }
+    //キャリアセンス5ms
+    if (millis() - t > 5) {
+      return true;
+    }
+  }
+  return true;
+}
 void loop() {
   if(mySerial.available()){
     char c = mySerial.read();
@@ -101,7 +119,8 @@ void loop() {
 //            }
             // send packet
 //            rf95.send(msg, strlen((char*)msg));
-            LoRa.beginPacket();
+            if(wait_CAD){
+              LoRa.beginPacket();
 //            LoRa.print(utc);
 //            LoRa.print(",");
 //            LoRa.print(latVal);
@@ -111,9 +130,10 @@ void loop() {
 //            LoRa.print(longVal);
 //            LoRa.print(",");
 //            LoRa.print(longSign);
-            LoRa.print(msg);
-            LoRa.endPacket();
-            delay(5000);
+              LoRa.print(msg);
+              LoRa.endPacket();
+              delay(5000);
+            }
         }
         *msg = "";
         msgLength=0;
